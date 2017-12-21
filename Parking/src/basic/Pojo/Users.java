@@ -184,19 +184,9 @@ public class Users implements Serializable, Cloneable
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((area == null) ? 0 : area.hashCode());
-		result = prime * result + ((city == null) ? 0 : city.hashCode());
-		result = prime * result + ((country == null) ? 0 : country.hashCode());
-		result = prime * result + ((dob == null) ? 0 : dob.hashCode());
-		result = prime * result + ((fname == null) ? 0 : fname.hashCode());
-		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
-		result = prime * result + id;
-		result = prime * result + Float.floatToIntBits(latitude);
-		result = prime * result + ((lname == null) ? 0 : lname.hashCode());
-		result = prime * result + Float.floatToIntBits(longitude);
+		
+		result = prime * result + getId();		
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + pincode;
-		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		result = prime * result + ((usertype == null) ? 0 : usertype.hashCode());
 		return result;
@@ -214,56 +204,7 @@ public class Users implements Serializable, Cloneable
 		if (area == null) {
 			if (other.area != null)
 				return false;
-		} else if (!area.equals(other.area))
-			return false;
-		if (city == null) {
-			if (other.city != null)
-				return false;
-		} else if (!city.equals(other.city))
-			return false;
-		if (country == null) {
-			if (other.country != null)
-				return false;
-		} else if (!country.equals(other.country))
-			return false;
-		if (dob == null) {
-			if (other.dob != null)
-				return false;
-		} else if (!dob.equals(other.dob))
-			return false;
-		if (fname == null) {
-			if (other.fname != null)
-				return false;
-		} else if (!fname.equals(other.fname))
-			return false;
-		if (gender == null) {
-			if (other.gender != null)
-				return false;
-		} else if (!gender.equals(other.gender))
-			return false;
-		if (id != other.id)
-			return false;
-		if (Float.floatToIntBits(latitude) != Float.floatToIntBits(other.latitude))
-			return false;
-		if (lname == null) {
-			if (other.lname != null)
-				return false;
-		} else if (!lname.equals(other.lname))
-			return false;
-		if (Float.floatToIntBits(longitude) != Float.floatToIntBits(other.longitude))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (pincode != other.pincode)
-			return false;
-		if (state == null) {
-			if (other.state != null)
-				return false;
-		} else if (!state.equals(other.state))
-			return false;
+		} 
 		if (username == null) {
 			if (other.username != null)
 				return false;
