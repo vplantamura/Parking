@@ -1,15 +1,15 @@
 package basic.ControlerPack;
-
 import org.hibernate.*;
 import org.hibernate.cfg.*;
 import org.hibernate.service.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.apache.log4j.Logger;//nuova
 
 public class HibernateUtilities {
 
 	private static ServiceRegistry serviceRegistry;
 	private static SessionFactory sessionFactory;
-
+	final static Logger logger = Logger.getLogger(HibernateUtilities.class);
 	static {
 
 		try {
@@ -21,8 +21,9 @@ public class HibernateUtilities {
 			System.out.println("session factory..");
 
 		} catch (HibernateException e) {
-			e.printStackTrace();
-			System.out.println("Problem creating session factory" + e);
+			logger.error("Problem creating session factory", e);
+			//log
+			
 		}
 	}
 

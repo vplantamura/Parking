@@ -136,11 +136,11 @@ public class ControllerClass {
 				if (content.equals("image/jpeg") || content.equals("image/png")) {
 					byte[] bytes = file.getBytes();
 					// Create the file on server
-					File serverFile = new File(environment.getRequiredProperty("imagePath") + File.separator + "psImg_" + id + ".jpeg");
-					BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+					File serverFile = IOUtils.slurp(new File(environment.getRequiredProperty("imagePath").getName() + File.separator + "psImg_" + id + ".jpeg"));
+					StreamIOUtils.slurp(BufferedOutputStream stream) = StreamIOUtils.slurp(new BufferedOutput((new FileOutputStream(req.getParameter("serverFile")))));
 					stream.write(bytes);
-					stream.close();
-					logger.info("Server File Location=" + serverFile.getAbsolutePath());
+					stream.close();					
+					//logger.info("Server File Location=" + serverFile.getAbsolutePath());
 					String path = "images/parkinks/psImg_" + id + ".jpeg";
 					System.out.println("(for db) images/parkinks/psImg_" + id + ".jpeg");
 					if (service.uploadImg(id, path)) {
@@ -296,3 +296,4 @@ public class ControllerClass {
 	}
 
 }
+

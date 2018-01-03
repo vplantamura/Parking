@@ -2,6 +2,7 @@ package basic.Pojo;
 
 import java.io.Serializable;
 
+//prova commento per commit
 public class Users implements Serializable, Cloneable
 {
 	private String fname, lname, gender, username, password, dob, area, state, city, country, usertype;

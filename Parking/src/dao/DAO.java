@@ -30,7 +30,9 @@ public class DAO implements DaoInf {
 		try {
 			this.session = sessionFactory.openSession();
 			this.session.beginTransaction();
-//			SELECT * FROM paidparking.parking where (LATITUDE >(18.4575324-0.02) and LATITUDE <(18.4575324+0.02))and(LONGITUDE >(73.86774639999999-0.02) and LONGITUDE <(73.86774639999999+0.02)) ORDER BY ABS(LONGITUDE - 73.86774639999999) LIMIT 1;
+//			SELECT * FROM paidparking.parking where (LATITUDE >(18.4575324-0.02) and LATITUDE <(18.4575324+0.02))
+//			and(LONGITUDE >(73.86774639999999-0.02) and LONGITUDE <(73.86774639999999+0.02)) 
+//          ORDER BY ABS(LONGITUDE - 73.86774639999999) LIMIT 1;
 			org.hibernate.Query queryResult = this.session.createQuery("FROM Parking where latitude >= :lat1 AND latitude <= :lat2 AND longitude >= :lng1 AND longitude <= :lng2 ORDER BY ABS(LONGITUDE - :lng)");
 //			queryResult.setFloat("lat", lat);
 			queryResult.setFloat("lng", lng);
@@ -42,8 +44,10 @@ public class DAO implements DaoInf {
 //			a1.forEach(System.out::println);
 		} catch (Exception e) {
 			this.exceptional();
-			System.err.println(e);
-		} finally {
+			//fix del 1 errore riga 32
+			this.session.getTransaction().rollback();	
+		} finally 
+		{
 			this.closeSession();
 		}		
 		return a1;		
@@ -60,8 +64,11 @@ public class DAO implements DaoInf {
 			return p;
 		} catch (Exception e) {
 			this.exceptional();
+			// fix errore line 58
+			this.session.getTransaction().rollback();{
 			System.err.println("e= "+e);			
-		} finally {
+		} finally 
+		
 			this.closeSession();			
 		}
 		return p;
@@ -73,12 +80,17 @@ public class DAO implements DaoInf {
 		try {
 			this.session = sessionFactory.openSession();
 			this.session.beginTransaction();
+			
 			u = (Users) this.session.get(Users.class, id);
+	
 			return u;
 		} catch (Exception e) {
 			this.exceptional();
+			//fix bug line 75
+			this.session.getTransaction().rollback();
 			System.err.println("e= "+e);
-		} finally {
+		} finally 
+	{
 			this.closeSession();			
 		}		
 		return u;
@@ -90,15 +102,21 @@ public class DAO implements DaoInf {
 		try {
 			this.session = sessionFactory.openSession();
 			this.session.beginTransaction();
+			
 			if(p!=null){
 				p.setImage(path);
 				this.session.update(p);
+				//fix bug line 92 
+				this.session.getTransaction().rollback();
 				return true;
 			}			
 		} catch (Exception e) {
 			this.exceptional();
+			//fix bug line 111
+			this.session.getTransaction().rollback();
 			System.err.println("e= "+e);			
 		} finally {
+			
 			this.closeSession();			
 		}
 		return false;
@@ -112,6 +130,8 @@ public class DAO implements DaoInf {
 			return this.session.save(p);
 		} catch (Exception e) {
 			this.exceptional();
+			//fix bug line 126
+			this.session.getTransaction().rollback();
 			System.err.println("e= "+e);
 		} finally {
 			this.closeSession();			
@@ -132,6 +152,8 @@ public class DAO implements DaoInf {
 			return ((Users)queryResult);
 		} catch (Exception e) {
 			this.exceptional();
+			//fix bug line 148
+			this.session.getTransaction().rollback();
 			System.err.println("e= "+e);
 			return new Users();
 		} finally {
@@ -165,9 +187,12 @@ public class DAO implements DaoInf {
 		try {
 			String q = "SELECT * FROM users inner join parking on users.ID = parking.USERID group by users.ID";
 			a1 = template.query(q, new UserMapping());
-		} catch (Exception e) {
+		} catch (Exception e) 
+		//fix bug line 181
+				this.session.getTransaction().rollback(); {
 			System.err.println(e.getMessage());
-		} finally {
+		}
+		finally {
 		}		
 		return a1;		
 	}
@@ -185,6 +210,8 @@ public class DAO implements DaoInf {
 //			a1.forEach(System.out::println);
 		} catch (Exception e) {
 			this.exceptional();
+			//fix bug line 200
+			this.session.getTransaction().rollback();
 			System.err.println(e);
 		} finally {
 			this.closeSession();
