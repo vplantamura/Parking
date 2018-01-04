@@ -85,7 +85,8 @@ public class Parking implements Serializable, Cloneable {
 		this.latitude = 0.0f;
 		this.longitude = 0.0f;
 		this.image = null;
-//		this.features = null;	
+//		this.features = null;
+		this.unique = id;
 	}
 	
 	public Parking(int id, int userId, int pincode, float latitude, float longitude, String area, String city,
@@ -101,6 +102,7 @@ public class Parking implements Serializable, Cloneable {
 		this.state = state;
 		this.country = country;
 		this.image = image;
+		this.unique =id;
 	}
 	@Override
 	public String toString() {
@@ -141,7 +143,7 @@ public class Parking implements Serializable, Cloneable {
 			if (other.area != null)
 				return false;
 		} 
-		if (id != other.id)
+		if (unique != other.unique)
 			return false;
 		
 		if (userId != other.userId)

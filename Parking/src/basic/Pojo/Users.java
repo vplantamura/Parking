@@ -152,6 +152,7 @@ public class Users implements Serializable, Cloneable
 		this.pincode = pincode;
 		this.latitude = latitude;
 		this.longitude = longitude;
+	    this.unique = id;
 	}
 
 	public Users() {
@@ -171,6 +172,7 @@ public class Users implements Serializable, Cloneable
 		this.pincode = 0;
 		this.latitude = 0.0f;
 		this.longitude = 0.0f;
+		this.unique = id;
 	}
 
 	@Override
@@ -185,8 +187,8 @@ public class Users implements Serializable, Cloneable
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		
-		result = prime * result + getId();		
+	
+		result = prime * result + unique;		
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		result = prime * result + ((usertype == null) ? 0 : usertype.hashCode());
