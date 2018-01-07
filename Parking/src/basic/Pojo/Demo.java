@@ -1,7 +1,11 @@
 package basic.Pojo;
 
 import java.io.Serializable;
-
+/**
+ * 
+ * @author user
+ *
+ */
 @SuppressWarnings("serial")
 public class Demo implements Serializable {
 	private String lat;

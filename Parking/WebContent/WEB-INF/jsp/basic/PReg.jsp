@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%--
+-- Descrizione: contiene il form per la registrazione al parcheggio
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Parking Register</title>
 <jsp:include page="/link.jsp" />

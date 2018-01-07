@@ -4,7 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 import basic.Pojo.Parking;
 import basic.Pojo.Users;
-
+/**
+ * 
+ * @author user
+ *
+ */
 public interface DaoInf {
 
 	public List<Parking> getParkings();

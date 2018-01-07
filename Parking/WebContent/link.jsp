@@ -1,4 +1,14 @@
+<%--
+-- 
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<meta http-equiv="cache-control" content="no-cache" />

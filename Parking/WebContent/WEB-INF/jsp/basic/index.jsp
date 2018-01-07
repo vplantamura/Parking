@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
+<%--
+-- Descrizione: Questa pagina contiene informazioni sulla HomePage
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+	
 		<title>Home Page</title>
 		
 		<jsp:include page="/link.jsp" />
@@ -13,7 +22,7 @@
    		 			var options = {
 						  componentRestrictions: {country: "ind"}
    		 			};
-    				autocomplete = new google.maps.places.Autocomplete(document.getElementById('searchPlace'),options);
+    				var autocomplete = new google.maps.places.Autocomplete(document.getElementById('searchPlace'),options);
 	   				autocomplete.addListener('place_changed', fillInAddress);
     			});
    			});

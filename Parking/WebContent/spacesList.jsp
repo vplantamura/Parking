@@ -1,3 +1,12 @@
+<%--
+-- 
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+
 <div class="container pana">
 	<div class="box">
   		<div class="container-fluid navbar2">

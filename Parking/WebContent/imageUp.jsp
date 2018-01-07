@@ -1,3 +1,12 @@
+<%--
+-- 
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+
 			    <div class="container">
           			<div class="row">
            				<div class="col-lg-11 col-xs-11 col-sm-11 col-md-11">

@@ -4,7 +4,11 @@ import org.hibernate.cfg.*;
 import org.hibernate.service.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.apache.log4j.Logger;//nuova
-
+/**
+ * 
+ * @author user
+ *
+ */
 public class HibernateUtilities {
 
 	private static ServiceRegistry serviceRegistry;

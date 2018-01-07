@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%--
+-- Descrizione: Questa pagina contiene informazioni sugli errori
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Error-Page</title>
 	<jsp:include page="/link.jsp" />  

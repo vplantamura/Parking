@@ -1,3 +1,13 @@
+<%--
+-- Descrizione: Questa pagina contiene il form utilizzato per i pagamenti
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+
+
 <div class="popup-box chat-popup" id="qnimatee">
 	<div class="popup-head">
 		<div class="popup-head-left pull-left"> Payment </div>
@@ -207,7 +217,7 @@ jQuery.validator.addMethod("cardNumber", function(value, element) {
     return this.optional(element) || Stripe.card.validateCardNumber(value);
 }, "Please specify a valid credit card number.");
 
-jQuery.validator.addMethod("cardExpiry", function(value, element) {    
+var jQuery.validator.addMethod("cardExpiry", function(value, element) {    
     /* Parsing month/year uses jQuery.payment library */
     value = $.payment.cardExpiryVal(value);
     return this.optional(element) || Stripe.card.validateExpiry(value.month, value.year);
@@ -233,7 +243,7 @@ validator = $form.validate({
         }
     },
     highlight: function(element) {
-        $(element).closest('.form-control').removeClass('success').addClass('error');
+     var   $(element).closest('.form-control').removeClass('success').addClass('error');
     },
     unhighlight: function(element) {
         $(element).closest('.form-control').removeClass('error').addClass('success');

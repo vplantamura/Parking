@@ -1,14 +1,16 @@
 package basic.Pojo;
 
 import java.io.Serializable;
-//import java.util.Arrays;
-
-public class Parking implements Serializable, Cloneable {
+/**
+ * 
+ * @author user
+ *
+ */
+public class Parking implements Cloneable {
 
 	private int id, userId, pincode;
 	private float latitude, longitude;
 	private String area, city, state, country, image;
-//	private String [] features;   
 	
 	
 	public int getId() {
@@ -31,9 +33,6 @@ public class Parking implements Serializable, Cloneable {
 	}
 	public void setLongitude(float longitude) {
 		this.longitude = longitude;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public int getUserId() {
 		return userId;
@@ -85,8 +84,8 @@ public class Parking implements Serializable, Cloneable {
 		this.latitude = 0.0f;
 		this.longitude = 0.0f;
 		this.image = null;
-//		this.features = null;
 		this.unique = id;
+		this.usernq = userId;
 	}
 	
 	public Parking(int id, int userId, int pincode, float latitude, float longitude, String area, String city,
@@ -103,6 +102,7 @@ public class Parking implements Serializable, Cloneable {
 		this.country = country;
 		this.image = image;
 		this.unique =id;
+		this.usernq = userId;
 	}
 	@Override
 	public String toString() {
@@ -111,7 +111,7 @@ public class Parking implements Serializable, Cloneable {
 				+ longitude + ", image=" + image  + "]";
 	}
 
-	public Object clone() throws CloneNotSupportedException{
+	public final Object clone() throws CloneNotSupportedException{
 		return super.clone();
 	}
 	@Override
@@ -141,12 +141,11 @@ public class Parking implements Serializable, Cloneable {
 		Parking other = (Parking) obj;
 		if (area == null) {
 			if (other.area != null)
-				return false;
-		} 
-		if (unique != other.unique)
-			return false;
+				return false;		}
 		
-		if (userId != other.userId)
+		if (unique != other.unique)
+			return false;		
+		if (usernq != other.usernq)
 			return false;
 		return true;
 	}

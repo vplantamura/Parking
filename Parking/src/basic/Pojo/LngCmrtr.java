@@ -1,7 +1,11 @@
 package basic.Pojo;
 
 import java.util.Comparator;
-
+/**
+ * 
+ * @author user
+ *
+ */
 public class LngCmrtr implements Comparator<Parking> {
 
 	@Override

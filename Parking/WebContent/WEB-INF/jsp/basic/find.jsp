@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+<%--
+-- 
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+  
     <title>Place details</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">

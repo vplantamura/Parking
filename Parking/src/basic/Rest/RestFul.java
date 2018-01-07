@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import basic.Pojo.Demo;
 
-
+/**
+ * 
+ * @author user
+ *
+ */
 @RestController
 public class RestFul {
 

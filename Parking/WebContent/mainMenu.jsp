@@ -2,6 +2,14 @@
 <%@ page errorPage="error.jsp" language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <html>
 <head>
+<%--
+-- Descrizione: Questa pagina contiene informazioni sulla Home Page
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
 
 </head>
 <body>

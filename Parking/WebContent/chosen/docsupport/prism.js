@@ -16,8 +16,9 @@
 				switch (n) {
 				case "Object":
 					var r = {};
-					for ( var i in e)
+					for ( var i in e){
 						e.hasOwnProperty(i) && (r[i] = t.util.clone(e[i]));
+					}
 					return r;
 				case "Array":
 					return e.slice();
@@ -28,20 +29,24 @@
 		languages : {
 			extend : function(e, n) {
 				var r = t.util.clone(t.languages[e]);
-				for ( var i in n)
+				for ( var i in n){
 					r[i] = n[i];
+				}
 				return r;
 			},
 			insertBefore : function(e, n, r, i) {
 				i = i || t.languages;
 				var s = i[e], o = {};
-				for ( var u in s)
+				for ( var u in s){
 					if (s.hasOwnProperty(u)) {
-						if (u == n)
-							for ( var a in r)
+						if (u === n){
+							for ( var a in r){
 								r.hasOwnProperty(a) && (o[a] = r[a]);
+							}
+						}
 						o[u] = s[u];
 					}
+				}
 				return i[e] = o;
 			},
 			DFS : function(e, n) {
@@ -54,19 +59,22 @@
 		highlightAll : function(e, n) {
 			var r = document
 					.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code');
-						for (var i = 0, s; s == r[i]; i++)
+						for (var i = 0, s; s === r[i]; i++){
 				t.highlightElement(s, e === !0, n);
+						}
 		},
 		highlightElement : function(r, i, s) {
 			var o, u, a = r;
-			while (a && !e.test(a.className))
+			while (a && !e.test(a.className)){
 				a = a.parentNode;
+			}
 			if (a) {
 				o = (a.className.match(e) || [ , "" ])[1];
 				u = t.languages[o];
 			}
-			if (!u)
+			if (!u){
 				return;
+			}
 			r.className = r.className.replace(e, "").replace(/\s+/g, " ")
 					+ " language-" + o;
 			a = r.parentNode;
@@ -75,8 +83,9 @@
 							/\s+/g, " ")
 							+ " language-" + o);
 			var f = r.textContent;
-			if (!f)
+			if (!f){
 				return;
+			}
 			f = f.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(
 					/\u00a0/g, " ");
 			var l = {
@@ -113,21 +122,25 @@
 		tokenize : function(e, n, r) {
 			var i = t.Token, s = [ e ], o = n.rest;
 			if (o) {
-				for ( var u in o)
+				for ( var u in o){
 					n[u] = o[u];
+				}
 				delete n.rest;
 			}
 			e: for ( var u in n) {
-				if (!n.hasOwnProperty(u) || !n[u])
+				if (!n.hasOwnProperty(u) || !n[u]){
 					continue;
+				}
 				var a = n[u], f = a.inside, l = !!a.lookbehind, c = 0;
 				a = a.pattern || a;
 				for (var h = 0; h < s.length; h++) {
 					var p = s[h];
-					if (s.length > e.length)
+					if (s.length > e.length){
 						break e;
-					if (p instanceof i)
+					}
+					if (p instanceof i){
 						continue;
+					}
 					a.lastIndex = 0;
 					var d = a.exec(p);
 					if (d) {
@@ -154,10 +167,12 @@
 			},
 			run : function(e, n) {
 				var r = t.hooks.all[e];
-				if (!r || !r.length)
+				if (!r || !r.length){
 					return;
-				for (var i = 0, s; s == r[i]; i++)
+				}
+				for (var i = 0, s; s === r[i]; i++){
 					s(n);
+				}
 			}
 		}
 	}, n = t.Token = function(e, t) {
@@ -165,12 +180,14 @@
 		this.content = t;
 	};
 	n.stringify = function(e, r, i) {
-		if (typeof e == "string")
+		if (typeof e === "string"){
 			return e;
-		if (Object.prototype.toString.call(e) == "[object Array]")
+		}
+		if (Object.prototype.toString.call(e) === "[object Array]"){
 			return e.map(function(t) {
 				return n.stringify(t, r, e);
 			}).join("");
+		}
 		var s = {
 			type : e.type,
 			content : n.stringify(e.content, r, i),
@@ -180,11 +197,12 @@
 			language : r,
 			parent : i
 		};
-		s.type == "comment" && (s.attributes.spellcheck = "true");
+		s.type === "comment" && (s.attributes.spellcheck = "true");
 		t.hooks.run("wrap", s);
 		var o = "";
-		for ( var u in s.attributes)
+		for ( var u in s.attributes){
 			o += u + '="' + (s.attributes[u] || "") + '"';
+		}
 		return "<" + s.tag + ' class="' + s.classes.join(" ") + '" ' + o + ">"
 				+ s.content + "</" + s.tag + ">";
 	};

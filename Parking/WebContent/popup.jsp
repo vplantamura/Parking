@@ -1,3 +1,12 @@
+<%--
+-- Descrizione: Questa pagina contiene il form utilizzato per il popup di Login
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+
 <div class="popup-box chat-popup" id="qnimate">
 	<div class="popup-head">
 		<div class="popup-head-left pull-left"> Your Details</div>

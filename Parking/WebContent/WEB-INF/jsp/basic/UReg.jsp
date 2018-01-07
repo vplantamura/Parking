@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%--
+-- Descrizione: Questa pagina contiene informazioni sulla registrazione dell'utente
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+
 	<title>User Registration</title>
 	
 	<jsp:include page="/link.jsp" />
@@ -228,8 +237,8 @@ function getLocationValid() {
 		var geocoder = new google.maps.Geocoder();
     	geocoder.geocode({'address': address }, function (results, status) {
         	if (status == google.maps.GeocoderStatus.OK) {
-            	latitude = results[0].geometry.location.lat();
-            	longitude = results[0].geometry.location.lng();
+            	var latitude = results[0].geometry.location.lat();
+            	var longitude = results[0].geometry.location.lng();
 				document.getElementById("latitude").value = latitude;
 				document.getElementById("longitude").value = longitude;
 				document.getElementById("myForm").submit();

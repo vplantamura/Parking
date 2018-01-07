@@ -69,24 +69,7 @@ Issues: http://github.com/ariona/hover3d/issues
 					$card.removeClass(settings.hoverInClass);
 				}, 1000);
 			}
-		}}}
-
-function($){
-	
-	$.fn.hover3d = function(options){
-		
-		var settings = $.extend({
-			selector      : null,
-			perspective   : 1000,
-			sensitivity   : 20,
-			invert        : false,
-			shine         : false,
-			hoverInClass  : "hover-in",
-			hoverOutClass : "hover-out",
-			hoverClass    : "hover-3d"
-		}, options);
-		
-		return this.each(function(){
+			
 			// Mouse movement Parallax effect
 			function move(event){
 				

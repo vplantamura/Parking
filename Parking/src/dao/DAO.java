@@ -312,22 +312,21 @@ public class DAO implements DaoInf {
 	public class UserMapping implements RowMapper<Users>{
 		@Override
 		public Users mapRow(ResultSet rs, int rn) throws SQLException {
-			Users u1 = new Users();
-			u1.setId(rs.getInt("ID"));
-			u1.setFname(rs.getString("FNAME"));
-			u1.setLname(rs.getString("LNAME"));
-			u1.setGender(rs.getString("GENDER"));
-			u1.setUsername(rs.getString("USERNAME"));
-			u1.setPassword(rs.getString("PASSWORD"));
-			u1.setDob(rs.getString("DOB"));
-			u1.setLatitude(rs.getFloat("LATITUDE"));
-			u1.setLongitude(rs.getFloat("LONGITUDE"));
-			u1.setArea(rs.getString("AREA"));
-			u1.setCity(rs.getString("CITY"));			
-			u1.setState(rs.getString("STATE"));
-			u1.setCountry(rs.getString("COUNTRY"));
-			u1.setPincode(rs.getInt("PINCODE"));
-			u1.setUsertype(rs.getString("USERTYPE"));
+			Users u1 = new Users(rs.getString("FNAME"), 
+								 rs.getString("LNAME"), 
+								 rs.getString("GENDER"), 
+								 rs.getString("USERNAME"),
+								 rs.getString("PASSWORD"),
+								 rs.getString("DOB"),
+								 rs.getString("AREA"),
+								 rs.getString("STATE"),
+								 rs.getString("CITY"),
+								 rs.getString("COUNTRY"),
+								 rs.getString("USERTYPE"),
+								 rs.getInt("ID"),
+								 rs.getInt("PINCODE"),
+								 rs.getFloat("LATITUDE"),
+								 rs.getFloat("LONGITUDE"));
 			return u1;
 		}
 	}
@@ -335,17 +334,16 @@ public class DAO implements DaoInf {
 	public class ParkMapping implements RowMapper<Parking>{
 		@Override
 		public Parking mapRow(ResultSet rs, int rn) throws SQLException {
-			Parking p1= new Parking();
-			p1.setId(rs.getInt("id"));
-			p1.setArea(rs.getString("area"));
-			p1.setCity(rs.getString("city"));
-			p1.setState(rs.getString("state"));
-			p1.setCountry(rs.getString("country"));
-			p1.setPincode(rs.getInt("pincode"));
-			p1.setLatitude(rs.getFloat("latitude"));
-			p1.setLongitude(rs.getFloat("longitude"));
-			p1.setImage(rs.getString("image"));
-			p1.setUserId(rs.getInt("userid"));
+			Parking p1= new Parking(rs.getInt("id"),
+									rs.getInt("userid"),
+									rs.getInt("pincode"),
+									rs.getFloat("latitude"),
+									rs.getFloat("longitude"),
+									rs.getString("area"),
+									rs.getString("city"),
+									rs.getString("state"),
+									rs.getString("country"),
+									rs.getString("image"));
 			return p1;
 		}		
 	}

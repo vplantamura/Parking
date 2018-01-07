@@ -2,7 +2,11 @@ package basic.Rest;
 
 import java.util.List;
 import basic.Pojo.Parking;
-
+/**
+ * 
+ * @author user
+ *
+ */
 public class ParkingForm {
 
 	List<Parking> l1;

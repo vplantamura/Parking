@@ -36,8 +36,9 @@
       if (eventMatchers[name].test(eventName)) { eventType = name; break; }
     }
 
-    if (!eventType)
+    if (!eventType){
       throw new SyntaxError('Only HTMLEvents and MouseEvents interfaces are supported');
+    }
 
     if (document.createEvent) {
       oEvent = document.createEvent(eventType);

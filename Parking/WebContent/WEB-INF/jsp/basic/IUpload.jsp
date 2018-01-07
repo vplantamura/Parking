@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%--
+-- 
+-- Sviluppatori: Federico Lupis, Antonino Leto, Vito Plantamura
+-- Versione 1.0
+--
+--
+--
+--%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Image Upload</title>
 <jsp:include page="/link.jsp" />
