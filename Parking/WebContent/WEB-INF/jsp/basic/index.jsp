@@ -21,7 +21,7 @@
 			function fillInAddress() {
 		        //Get the place details from the autocomplete object.
 				var place = autocomplete.getPlace();
-		        
+				 <!-- fixed -->
 		        DefaultHTTPUtilities utilities=new DefaultHTTPUtilities();
 		        var loc = document.getElementById('searchPlace').value;
 		        utilities.sendRedirect(url);
